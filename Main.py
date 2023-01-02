@@ -2,9 +2,11 @@ import time
 import pyautogui 
 import ctypes
 
-currentpos = 0
-previouspos = 0
-idlestate = 0 # YOU CAN CHANGE THIS TO HOW LONG YOU WANT IT TO BE!
+currentpos = 0 # This cannot be configured 
+previouspos = 0 # This cannot be configured 
+idlestate = 5 # This can be configured!!! 
+counter = 0 # This cannot be configured 
+
 
 # Please dont mess with the other variables as the program will not work
 
@@ -30,21 +32,21 @@ while True:
 
      if currentpos == previouspos:
       print("Mouse not moving ")
-      idlestate = idlestate + 1 # This will increment everytime the mouse is idle(in the same position) 
+      counter = counter + 1 # This will increment everytime the mouse is idle(in the same position) 
       ismousemoving = False # Pretty self explanatory 
      else:
       print("Mouse is moving ")
       ismousemoving = True
-      idlestate = 0
-      # The idle counter is set back to zero when the mouse has stated to move again 
+      counter = 0 
+      # The coun ter is set back to zero when the mouse has started to move again 
 
-   if idlestate == 5 and ismousemoving == False:
-      idlestate = 0
+   if counter == idlestate and ismousemoving == False:
+      counter = 0 
       ctypes.windll.user32.LockWorkStation()
       # Locks your computer if the idle time equals to the one set(by default it is around 5 seconds). 
 
 
-   time.sleep(1) # Limits CPU usage and contributes to making the program to make a flow. 
+   time.sleep(1) # Limits CPU usage and contributes to making the program have a smooth flow. 
    
    
    
