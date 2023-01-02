@@ -20,7 +20,6 @@ counter = 0 # This cannot be configured
 
 while True:
 
-   previouspos = currentpos # Stores the previous mouse location as X and Y coords 
    currentpos = pyautogui.position() # Retrieves the current mouse location
 
 
@@ -44,6 +43,8 @@ while True:
       counter = 0 
       ctypes.windll.user32.LockWorkStation()
       # Locks your computer if the idle time equals to the one set(by default it is around 5 seconds). 
+      
+   previouspos = currentpos # Stores the previous mouse location as X and Y coords 
 
 
    time.sleep(1) # Limits CPU usage and contributes to making the program have a smooth flow. 
